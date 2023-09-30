@@ -1,0 +1,26 @@
+import java.util.Scanner;
+public class TimeConversion {
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        String s=scan.next();
+
+        String s1=s.substring(s.length()-2,s.length());
+        if(s1.equals("PM")){
+            String s2=s.substring(0, 2);
+            if(s2.equals("12")){
+                System.out.println(s.substring(0,s.length()-2));
+            }else{
+                int value=Integer.valueOf(s2);
+                String s3=String.valueOf(12+value);
+                System.out.println(s3+s.substring(2, s.length()-2));
+            }
+        }else{
+            String s2=s.substring(0, 2);
+            if(s2.equals("12")){
+                System.out.println("00"+s.substring(2,s.length()-2));
+            }else{
+                System.out.println(s.substring(0, s.length()-2));
+            }
+        }
+    }
+}
