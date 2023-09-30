@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class PlusMinus {
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int size=scan.nextInt();
+        int array[]=new int[size];
+        for(int i=0;i<size;i++){
+            array[i]=scan.nextInt();
+        }
+
+        float positive=0;
+        float negative=0;
+        float zero=0;
+
+        for(int i=0;i<size;i++){
+            if(array[i]>0){
+                positive++;
+            }else if(array[i]<0){
+                negative++;
+            }else{
+                zero++;
+            }
+        }
+
+        System.out.println(String.format("%.6f",positive/size));
+        System.out.printf("%.6f\n",negative/size);
+        System.out.println(String.format("%.6f",zero/size));
+    }
+}
