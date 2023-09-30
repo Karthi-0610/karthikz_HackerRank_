@@ -1,0 +1,37 @@
+import java.util.*;
+public class GradingStudents {
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int size=scan.nextInt();
+        int grades[]=new int[size];
+        for(int i=0;i<size;i++){
+            grades[i]=scan.nextInt();
+        }
+
+        for(int i=0;i<size;i++){
+            if(grades[i]<38){
+                System.out.println(grades[i]);
+            }else{
+                int rem=grades[i]%10;
+                int num=grades[i]/10;
+                if(rem<5){
+                    int mainval=(num*10)+5;
+                    int val=mainval-grades[i];
+                    if(val<3){
+                        System.out.println(mainval);
+                    }else{
+                        System.out.println(grades[i]);
+                    }
+                }else{
+                    int mainval=(num*10)+10;
+                    int val=mainval-grades[i];
+                    if(val<3){
+                        System.out.println(mainval);
+                    }else{
+                        System.out.println(grades[i]);
+                    }
+                }
+            }
+        }
+    }
+}
