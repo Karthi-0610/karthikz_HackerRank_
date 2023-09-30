@@ -1,0 +1,31 @@
+import java.util.Scanner;
+public class BreakingTheRecords {
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int size=scan.nextInt();
+        int Record[]=new int[size];
+        for(int i=0;i<size;i++){
+            Record[i]=scan.nextInt();
+        }
+
+        int minvalue=Record[0];
+        int maxvalue=Record[0];
+
+        int mincount=0;
+        int maxcount=0;
+
+        for(int i=1;i<size;i++){
+            if(Record[i]>maxvalue){
+                maxvalue=Record[i];
+                maxcount++;
+            }
+            if(Record[i]<minvalue){
+                minvalue=Record[i];
+                mincount++;
+            }
+        }
+
+        System.out.println(maxcount+" "+mincount);
+
+    }
+}
