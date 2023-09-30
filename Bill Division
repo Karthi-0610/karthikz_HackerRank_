@@ -1,0 +1,25 @@
+import java.util.*;
+public class BillDivision {
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int n=scan.nextInt();
+        int k=scan.nextInt();
+        int bill[]=new int[n];
+        for(int i=0;i<n;i++){
+            bill[i]=scan.nextInt();
+        }
+        int b=scan.nextInt();
+
+        int totalcost=0;
+        for(int i=0;i<n;i++){
+            totalcost+=bill[i];
+        }
+        int Annaoriginal=(totalcost-bill[k])/2;
+
+        if(b==Annaoriginal){
+            System.out.println("Bon Appetit");
+        }else{
+            System.out.println(Math.abs(b-Annaoriginal));
+        }
+    }
+}
