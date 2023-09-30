@@ -1,0 +1,26 @@
+import java.util.Scanner;
+public class DiagonalDifference {
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int size=scan.nextInt();
+        int array[][]=new int[size][size];
+        for(int i=0;i<size;i++){
+            for(int j=0;j<size;j++){
+                array[i][j]=scan.nextInt();
+            }
+        }
+
+        int leftdiagonal=0;
+        int rightdiagonal=0;
+
+        for(int i=0;i<size;i++){
+            leftdiagonal+=array[i][i];
+        }
+
+        for(int i=0;i<size;i++){
+            rightdiagonal+=array[i][size-1-i];
+        }
+
+        System.out.println(Math.abs(leftdiagonal-rightdiagonal));
+    }
+}
