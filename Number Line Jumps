@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class NumberLineJumps {
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int x1=scan.nextInt();
+        int v1=scan.nextInt();
+        int x2=scan.nextInt();
+        int v2=scan.nextInt();
+
+        while(true){
+            if((x1>x2 && v1>=v2) ||(x2>x1 && v2>=v1)){
+                System.out.println("NO");
+                break;
+            }else if(x1==x2){
+                    System.out.println("YES");
+                    break;
+                }else{
+                    x1+=v1;
+                    x2+=v2;
+                }
+            }
+        }
+    }
