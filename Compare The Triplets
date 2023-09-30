@@ -19,7 +19,6 @@ public class CompareTheTriplets {
                 bob++;
             }
         }
-
         System.out.println(alice+" "+bob);
     }
 }
