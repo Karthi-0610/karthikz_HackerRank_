@@ -1,0 +1,21 @@
+import java.util.*;
+public class CatsAndAMouse {
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int loop=scan.nextInt();
+        for(int i=0;i<loop;i++){
+            int x=scan.nextInt();
+        int y=scan.nextInt();
+        int z=scan.nextInt();
+
+        if(Math.abs(z-x)>Math.abs(z-y)){
+            System.out.println("Cat B");
+        }else if(Math.abs(z-x)<Math.abs(z-y)){
+            System.out.println("Cat A");
+        }else{
+            System.out.println("Mouse C");
+        }
+        }
+        
+    }
+}
