@@ -1,0 +1,16 @@
+import java.util.*;
+public class ViralAdvertising {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        int day=scan.nextInt();
+        int people=5;
+        int likes=people/2;
+        int total=likes;
+        for(int i=1;i<day;i++){
+            people=likes*3;
+            likes=people/2;
+            total+=likes;
+        }
+        System.out.println(total);
+    }
+}
