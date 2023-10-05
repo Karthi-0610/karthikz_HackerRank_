@@ -1,0 +1,28 @@
+import java.util.*;
+public class JumpingOnTheCloudsRevisited {
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int n=scan.nextInt();
+        int k=scan.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=scan.nextInt();
+        }
+        int energy=100;
+        int pass=0;
+        while(true){
+            pass=pass+k;
+            energy--;
+            if(pass>=n){
+                pass=pass%n;
+            }
+            if(arr[pass]==1){
+                energy=energy-2;
+            }
+            if(pass==0){
+                break;
+            }
+        }
+        System.out.println(energy);
+    }
+}
