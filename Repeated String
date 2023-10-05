@@ -1,0 +1,23 @@
+import java.util.*;
+public class RepeatedString {
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        String s=scan.next();
+        long n=scan.nextLong();
+        long mul=n/s.length();
+        long rem=n%s.length();
+        long count=0;
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='a'){
+                count++;
+            }
+        }
+        count*=mul;
+        for(int i=0;i<rem;i++){
+            if(s.charAt(i)=='a'){
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+}
