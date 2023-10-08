@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class EqualizeTheArray {
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int n=scan.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=scan.nextInt();
+        }
+
+        int count=1;
+        for(int i=0;i<n;i++){
+            int altcount=0;
+            for(int j=i;j<n;j++){
+                if(arr[i]==arr[j]){
+                    altcount++;
+                }
+            }
+            if(altcount>count){
+                count=altcount;
+            }
+        }
+
+        System.out.println(n-count);
+
+    }
+}
