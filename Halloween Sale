@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public class HalloweenSale {
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int p=scan.nextInt();
+        int d=scan.nextInt();
+        int m=scan.nextInt();
+        int s=scan.nextInt();
+        int count=0;
+        while(s-p>=0){
+            s=s-p;
+            if(p-d<=m){
+                p=m;
+            }else{
+                p=p-d;
+            }
+            count++;
+        }
+        System.out.println(count);
+
+    }
+}
