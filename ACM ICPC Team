@@ -1,0 +1,36 @@
+import java.util.*;
+public class ACMICPCTeam{
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int r=scan.nextInt();
+        int c=scan.nextInt();
+        String arr[]=new String[r];
+        for(int i=0;i<r;i++){
+                arr[i]=scan.next();
+        }
+        ArrayList<Integer> alist=new ArrayList<>();
+        for(int i=0;i<r;i++){
+            for(int j=i+1;j<r;j++){
+                int count=0;
+                for(int k=0;k<c;k++){
+                    if(arr[i].charAt(k)=='1' ||arr[j].charAt(k)=='1'){
+                        count++;
+                    }
+                }
+                alist.add(count);
+            }
+        }
+        Collections.sort(alist);
+        int max=alist.get(alist.size()-1);
+        int team=0;
+        for(int i=alist.size()-1;i>=0;i--){
+            if(alist.get(i)==max){
+                team++;
+            }else{
+                break;
+            }
+        }
+        System.out.println(max);
+        System.out.println(team);
+    }
+}
