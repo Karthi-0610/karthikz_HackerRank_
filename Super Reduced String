@@ -1,0 +1,29 @@
+import java.util.*;
+public class SuperReducedString{
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        String str=scan.next();
+        int l=str.length();
+        ArrayList<Character> alist=new ArrayList<>();
+        for(int i=0;i<l;i++){
+            alist.add(str.charAt(i));
+        }
+        for(int i=0;i<alist.size()-1;i++){
+                if(alist.get(i)==alist.get(i+1)){
+                    alist.remove(i+1);
+                    alist.remove(i);
+                    i=-1;
+                }
+        }
+        String s="";
+        for(int i=0;i<alist.size();i++){
+            s+=alist.get(i);
+        }
+        if(s==""){
+            System.out.println("Empty String");
+        }else{
+            System.out.println(s);
+        }
+        
+    }
+}
