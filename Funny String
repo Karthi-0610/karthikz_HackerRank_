@@ -1,0 +1,34 @@
+import java.util.*;
+public class FunnyString{
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int n=scan.nextInt();
+        for(int i=0;i<n;i++){
+            String s=scan.next();
+            String r="";
+            for(int j=s.length()-1;j>=0;j--){
+                r=r+s.charAt(j);
+            }
+            ArrayList<Integer> alist1=new ArrayList<>();
+            ArrayList<Integer> alist2=new ArrayList<>();
+            for(int j=1;j<s.length();j++){
+                int svalue=Math.abs(s.charAt(j)-s.charAt(j-1));
+                alist1.add(svalue);
+                int rvalue=Math.abs(r.charAt(j)-r.charAt(j-1));
+                alist2.add(rvalue);
+            }
+            Boolean bool=true;
+            for(int j=0;j<alist2.size();j++){
+                if(alist1.get(j)!=alist2.get(j)){
+                    bool=false;
+                    break;
+                }
+            }
+            if(bool){
+                System.out.println("Funny");
+            }else{
+                System.out.println("Not Funny");
+            }
+        }
+    }
+}
