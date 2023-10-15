@@ -1,0 +1,26 @@
+import java.util.*;
+public class Pangrams{
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        String str=scan.nextLine();
+        str=str.trim();
+        str=str.replace(" ","");
+        str=str.toLowerCase();
+        int arr[]=new int[26];
+        for(int i=0;i<str.length();i++){
+            arr[str.charAt(i)-97]+=1;
+        }
+        boolean bool=true;
+        for(int i=0;i<26;i++){
+            if(arr[i]==0){
+                bool=false;
+                break;
+            }
+        }
+        if(bool){
+            System.out.println("pangram");
+        }else{
+            System.out.println("not pangram");
+        }
+    }
+}
