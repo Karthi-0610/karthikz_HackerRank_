@@ -1,0 +1,17 @@
+import java.util.*;
+public class IntroToTutorialChallenges{
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int V=scan.nextInt();
+        int n=scan.nextInt();
+        int arr[]=new int[n];
+        int value=0;
+        for(int i=0;i<n;i++){
+            arr[i]=scan.nextInt();
+            if(arr[i]==V){
+                value=i;
+            }
+        }
+        System.out.println(value);
+    }
+}
