@@ -1,0 +1,31 @@
+import java.util.*;
+public class CaesaeCipher{
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int n=scan.nextInt();
+        scan.nextLine();
+        String str=scan.nextLine();
+        int shift=scan.nextInt();
+        String s="";
+        for(int i=0;i<n;i++){
+                if(Character.isUpperCase(str.charAt(i))){
+                    int value=(int)str.charAt(i)+shift;
+                    while(value>=91){
+                        value=value%91;
+                        value+=65;
+                    }
+                    s=s+(char)value;
+                }else if(Character.isLowerCase(str.charAt(i))){
+                    int value=(int)str.charAt(i)+shift;
+                    while(value>=123){
+                        value=value%123;
+                        value+=97;
+                    }
+                    s=s+(char)value;
+                }else{
+                s+=str.charAt(i);
+            }
+        }
+        System.out.println(s);
+    }
+}
