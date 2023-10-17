@@ -1,0 +1,19 @@
+import java.util.*;
+public class ChocolateFeast{
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int t=scan.nextInt();
+        for(int i=0;i<t;i++){
+            int n=scan.nextInt();
+            int c=scan.nextInt();
+            int m=scan.nextInt();
+            int chocolate=n/c;
+            int wrapper=chocolate;
+            while(wrapper>=m){
+                chocolate=chocolate+(wrapper/m);
+                wrapper=(wrapper%m)+(wrapper/m);
+            }
+            System.out.println(chocolate);
+        }
+    }
+}
