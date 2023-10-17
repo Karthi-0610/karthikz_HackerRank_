@@ -1,0 +1,29 @@
+import java.util.*;
+public class ModifiedKaprekarNumbers{
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int p=scan.nextInt();
+        int q=scan.nextInt();
+        int count=0;
+        for(int i=p;i<=q;i++){
+            if(i==1){
+                System.out.print(i+" ");
+                count++;
+            }
+            long square=(long)i*i;
+            String s=String.valueOf(square);
+            int l=s.length()/2;
+            if(s.length()>=2){
+                String s1=s.substring(0,l);
+                String s2=s.substring(l,s.length());
+                if(Integer.parseInt(s1)+Integer.parseInt(s2)==i){
+                    System.out.print(i+" ");
+                    count++;
+                }
+            }
+        }
+        if(count==0){
+            System.out.println("INVALID RANGE");
+        }
+    }
+}
