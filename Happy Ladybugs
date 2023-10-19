@@ -1,0 +1,59 @@
+import java.util.*;
+public class HappyLadyBugs{
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int g=scan.nextInt();
+        for(int i=0;i<g;i++){
+            int n=scan.nextInt();
+            String b=scan.next();
+            if(b.length()==1){
+                if(b.charAt(0)=='_'){
+                    System.out.println("YES");
+                }else{
+                    System.out.println("NO");
+                }
+            }else{
+                HashMap<Character,Integer> hmap=new HashMap<>();
+                for(int j=0;j<b.length();j++){
+                    if(!hmap.containsKey(b.charAt(j))){
+                        hmap.put(b.charAt(j),1);
+                    }else{
+                        hmap.put(b.charAt(j), hmap.get(b.charAt(j))+1);
+                    }
+                }
+                if(!hmap.containsKey('_')){
+                    Boolean bool=true;
+                    for(int k=0;k<b.length();k++){
+                        if(k!=0 && k!=b.length()-1 && b.charAt(k)!=b.charAt(k+1) && b.charAt(k)!=b.charAt(k-1) ){
+                            bool=false;
+                        }
+                        if(k==0 && b.charAt(k+1)!=b.charAt(k)){
+                            bool=false;
+                        }
+                        if(k==b.length()-1 && b.charAt(k)!=b.charAt(k-1)){
+                            bool=false;
+                        }
+                    }
+                    if(bool){
+                        System.out.println("YES");
+                    }else{
+                        System.out.println("NO");
+                    }
+                }else{
+                    Set<Character> set=hmap.keySet();
+                boolean bool=true;
+                for(char c:set){
+                    if(c!='_' && hmap.get(c)==1){
+                        bool=false;
+                    }
+                }
+                if(bool){
+                    System.out.println("YES");
+                }else{
+                    System.out.println("NO");
+                }
+                } 
+            }
+        }
+    }
+}
