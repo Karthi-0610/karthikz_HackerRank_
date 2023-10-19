@@ -1,0 +1,25 @@
+import java.util.*;
+public class RunningTimeOfAlgorithms{
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int n=scan.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=scan.nextInt();
+        }
+        int count=0;
+        for(int i=1;i<n;i++){
+            int ncount=0;
+            int value=arr[i];
+            int j=i;
+            while(j>=1 && value<arr[j-1]){
+                arr[j]=arr[j-1];
+                j--;
+                ncount++;
+            }
+            arr[j]=value;
+            count+=ncount;
+        }
+        System.out.println(count);
+    }
+}
