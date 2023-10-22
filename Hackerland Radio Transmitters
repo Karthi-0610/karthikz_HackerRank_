@@ -1,0 +1,40 @@
+import java.util.*;
+public class HackerlandRadioTransmitters{
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int n=scan.nextInt();
+        int k=scan.nextInt();
+        ArrayList<Integer> alist=new ArrayList<>();
+        for(int i=0;i<n;i++){
+            alist.add(scan.nextInt());
+        }
+        Collections.sort(alist);
+        int count=0;
+        for(int i=0;i<alist.size();i++){
+            count++;
+            int value=alist.get(0);
+            if(alist.contains(value+k)){
+                value+=k;
+                value+=k;
+            }else{
+                for(int j=value+k-1;j>value;j--){
+                    if(alist.contains(j)){
+                        value=j;
+                        value+=k;
+                        break;
+                    }
+                }
+            }
+            for(int z=0;z<alist.size();z++){
+                if(alist.get(z)<=value){
+                    alist.remove(z);
+                    z=-1;
+                }else{
+                    break;
+                }
+            }
+            i=-1;
+        }
+        System.out.println(count);
+    }
+}
