@@ -1,0 +1,47 @@
+import java.util.*;
+public class MissingNumbers{
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int n1=scan.nextInt();
+        HashMap<Integer,Integer> hmap1=new HashMap<>();
+        for(int i=0;i<n1;i++){
+            int num=scan.nextInt();
+            if(!hmap1.containsKey(num)){
+                hmap1.put(num,1);
+            }else{
+                hmap1.put(num,hmap1.get(num)+1);
+            }
+        }
+        int n2=scan.nextInt();
+        HashMap<Integer,Integer> hmap2=new HashMap<>();
+        for(int i=0;i<n2;i++){
+            int num=scan.nextInt();
+            if(!hmap2.containsKey(num)){
+                hmap2.put(num,1);
+            }else{
+                hmap2.put(num,hmap2.get(num)+1);
+            }
+        }
+        Set<Integer> set1=hmap1.keySet();
+        Set<Integer> set2=hmap2.keySet();
+        ArrayList<Integer> alist1=new ArrayList<>();
+        ArrayList<Integer> alist2=new ArrayList<>();
+        for(int k:set1){
+            alist1.add(k);
+        }
+        for(int k:set2){
+            alist2.add(k);
+        }
+        Collections.sort(alist1);
+        Collections.sort(alist2);
+        for(int value:alist2){
+            if(alist1.contains(value)){
+                if(hmap1.get(value)<hmap2.get(value)){
+                    System.out.print(value+" ");
+                }
+            }else{
+                System.out.print(value+" ");
+            }
+        }
+    }
+}
