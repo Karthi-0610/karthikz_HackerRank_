@@ -1,0 +1,30 @@
+import java.util.*;
+public class StrangeCounter{
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+            long t=scan.nextLong();
+            boolean bool=true;
+            if(t==1){
+                System.out.println("3");
+                System.exit(0);
+            }else if(t==2){
+                System.out.println("2");
+                System.exit(0);
+            }else if(t==3){
+                System.out.println("1");
+                System.exit(0);
+            }
+            long prev=3;
+            long next=3;
+            long value=3;
+            while(t>next){
+                prev=next;
+                value*=2;
+                next+=value;
+                if(t<=next){
+                    System.out.println(value-(Math.abs(prev-t))+1);
+                    break;
+                }
+            }
+    }
+}
