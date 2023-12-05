@@ -1,0 +1,43 @@
+import java.util.*;
+public class ClimbingTheLeaderboard{
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int m=scan.nextInt();
+        ArrayList<Integer> ranked=new ArrayList<>();
+        ranked.add(scan.nextInt());
+        for(int i=1;i<m;i++){
+            int e=scan.nextInt();
+            if(ranked.get(ranked.size()-1)!=e){
+                ranked.add(e);
+            }
+        }
+        int n=scan.nextInt();
+        int player[]=new int[n];
+        int k=ranked.size()-1;
+        for(int i=0;i<n;i++){
+            player[i]=scan.nextInt();
+            for(int j=k;j>=0;j--){
+                if(player[i]<ranked.get(j)){
+                    System.out.println(ranked.size()+1);
+                    k=j;
+                    j=-1;
+                }
+                else if(player[i]==ranked.get(j)){
+                    System.out.println(j+1);
+                    k=j;
+                    j=-1;
+                }
+                else if(player[i]>ranked.get(j) && player[i]<ranked.get(j-1)){
+                    System.out.println(j+1);
+                    k=j;
+                    j=-1;
+                }
+                else if(player[i]>=ranked.get(0)){
+                    System.out.println("1");
+                    k=j;
+                    j=-1;
+                }
+            }
+        }  
+    }
+}
