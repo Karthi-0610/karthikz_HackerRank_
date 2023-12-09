@@ -1,0 +1,20 @@
+import java.util.*;
+public class MinimumAbsoluteDifferenceInAnArray{
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int n=scan.nextInt();
+        ArrayList<Integer> alist=new ArrayList<>();
+        for(int i=0;i<n;i++){
+            int num=scan.nextInt();
+            alist.add(num);
+        }
+        int minvalue=Integer.MAX_VALUE;
+        Collections.sort(alist);
+        for(int i=0;i<n-1;i++){
+            if(Math.abs(alist.get(i)-alist.get(i+1))<minvalue){
+                minvalue=Math.abs(alist.get(i)-alist.get(i+1));
+            }
+        }
+        System.out.println(minvalue);
+    }
+}
