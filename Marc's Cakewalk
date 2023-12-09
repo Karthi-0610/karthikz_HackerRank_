@@ -1,0 +1,17 @@
+import java.util.*;
+public class MarcsCakewalk{
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int n=scan.nextInt();
+        ArrayList<Integer> calorie=new ArrayList<>();
+        for(int i=0;i<n;i++){
+            calorie.add(scan.nextInt());
+        }
+        Collections.sort(calorie);
+        long weight=0;
+        for(int i=0;i<n;i++){
+            weight+=(Math.pow(2,i)*calorie.get(n-1-i));
+        }
+        System.out.println(weight);
+    }
+}
