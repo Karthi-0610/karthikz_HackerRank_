@@ -1,0 +1,23 @@
+import java.util.*;
+public class LonelyInteger{
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int n=scan.nextInt();
+        ArrayList<Integer> a=new ArrayList<>();
+        for(int i=0;i<n;i++){
+            a.add(scan.nextInt());
+        }
+        for(int i=0;i<n;i++){
+            int count=0;
+            for(int j=0;j<n;j++){
+                if(a.get(i)==a.get(j)){
+                    count++;
+                }
+            }
+            if(count<2){
+                System.out.println(a.get(i));
+                break;
+            }
+        }
+    }
+}
