@@ -1,0 +1,33 @@
+import java.util.*;
+public class MaximumPerimeterTriangle{
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int n=scan.nextInt();
+        ArrayList<Long> sticks=new ArrayList<>();
+        for(int i=0;i<n;i++){
+            sticks.add(scan.nextLong());
+        }
+        Collections.sort(sticks);
+        long total=0;
+        long a=0;
+        long b=0;
+        long c=0;
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                for(int k=j+1;k<n;k++){
+                    if(sticks.get(i)+sticks.get(j)>sticks.get(k) && sticks.get(j)+sticks.get(k)>sticks.get(i) && sticks.get(k)+sticks.get(i)>sticks.get(j)  && sticks.get(i)+sticks.get(j)+sticks.get(k)>total){
+                        a=sticks.get(i);
+                        b=sticks.get(j);
+                        c=sticks.get(k);
+                        total=a+b+c;
+                    }
+                }
+            }
+        }
+        if(total==0){
+            System.out.println("-1");
+        }else{
+            System.out.println(a+" "+b+" "+c);
+        }
+    }
+}
