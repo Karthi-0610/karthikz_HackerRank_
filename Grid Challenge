@@ -1,0 +1,40 @@
+import java.util.*;
+public class GridChallenge{
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int t=scan.nextInt();
+        for(int i=0;i<t;i++){
+            int n=scan.nextInt();
+            scan.nextLine();
+            ArrayList<String> alist=new ArrayList<>();
+            for(int j=0;j<n;j++){
+                String s=scan.nextLine();
+                char c[]=s.toCharArray();
+                Arrays.sort(c);
+                String s1=new String(c);
+                alist.add(s1);
+            }
+            boolean bool=true;
+                for(int k=0;k<alist.get(0).length();k++){
+                    for(int l=0;l<n-1;l++){
+                        for(int m=l+1;m<n;m++){
+                            if(alist.get(l).charAt(k)>alist.get(m).charAt(k)){
+                                System.out.println("NO");
+                                bool=false;
+                                break;
+                            }
+                        }
+                        if(!bool){
+                            break;
+                        }
+                    }
+                    if(!bool){
+                        break;
+                    }
+                }
+                if(bool){
+                    System.out.println("YES");
+                }
+        }
+    }
+}
