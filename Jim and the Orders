@@ -1,0 +1,22 @@
+import java.util.*;
+public class JimAndTheOrders{
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        long n=scan.nextInt();
+        ArrayList<Integer> alist1=new ArrayList<>();
+        ArrayList<Integer> alist2=new ArrayList<>();
+        for(int i=0;i<n;i++){
+            int n1=scan.nextInt();
+            int n2=scan.nextInt();
+            int sum=n1+n2;
+            alist1.add(sum);
+            alist2.add(sum);
+        }
+        Collections.sort(alist2);
+        for(int i=0;i<n;i++){
+            int ind=alist1.indexOf(alist2.get(i));
+            System.out.print(ind+1+" ");
+            alist1.set(ind,-1);
+        }
+    }
+}
