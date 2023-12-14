@@ -1,0 +1,25 @@
+import java.util.*;
+public class GreedyFlorist{
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int n=scan.nextInt();
+        int k=scan.nextInt();
+        ArrayList<Integer> alist=new ArrayList<>();
+        for(int i=0;i<n;i++){
+            alist.add(scan.nextInt());
+        }
+        Collections.sort(alist);
+        int count=0;
+        int alter=1;
+        int total=0;
+        for(int i=n-1;i>=0;i--){
+            count++;
+            total+=(alter*alist.get(i));
+            if(count==k){
+                count=0;
+                alter++;
+            }
+        }
+        System.out.println(total);
+    }
+}
