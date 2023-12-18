@@ -1,0 +1,30 @@
+import java.util.*;
+public class PalindromeIndex{
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int q=scan.nextInt();
+        scan.nextLine();
+        for(int i=0;i<q;i++){
+            String s=scan.nextLine();
+            int l=s.length();
+            char c[]=s.toCharArray();
+            Boolean bool=true;
+            for(int j=0;j<(l/2);j++){
+                if(c[j]==c[l-1-j]){
+                    continue;
+                }else{
+                    if(c[j]==c[l-2-j] && c[j+1]==c[l-j-3]){
+                        System.out.println(l-1-j);
+                    }else{
+                        System.out.println(j);
+                    }
+                    bool=false;
+                    break;
+                }
+            }
+            if(bool){
+                System.out.println("-1");
+            }
+    }      
+    }
+}
