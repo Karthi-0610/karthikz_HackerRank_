@@ -1,0 +1,18 @@
+import java.util.*;
+public class MaximizingXOR{
+    public static void main(String args[]){
+        Scanner scan=new Scanner(System.in);
+        int l=scan.nextInt();
+        int r=scan.nextInt();
+        int max=0;
+        for(int i=l;i<=r;i++){
+            for(int j=i;j<=r;j++){
+                int ref=i^j;
+                if(ref>max){
+                    max=ref;
+                }
+            }
+        }
+        System.out.println(max);
+    }
+}
